@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(180deg, #ffafbd 0%, #ffc3a0 100%);
+        }
+        .bounce2 {
+            animation: bounce2 2s infinite;
+        }
+        @keyframes bounce2 {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+    </style>
+</head>
+<body class="gradient-bg h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-2xl text-center">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYyYm9waGFia2p3Y2d6YmR6ZWR6ZWR6ZWR6ZWR6ZWR6ZWR6ZWR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/57YpD3xY8WbYmY/giphy.gif" alt="Cute Bear" class="mx-auto mb-4 w-32 h-32">
+        <h1 class="text-2xl font-bold mb-4 text-pink-600">Antonio, will you be my valentine?</h1>
+        <div class="flex justify-center space-x-4">
+            <button id="yesBtn" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full transition-all duration-300">Yes</button>
+            <button id="noBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full">No</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        let yesSize = 1;
+
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+            
+            yesSize += 0.2;
+            yesBtn.style.transform = `scale(${yesSize})`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            document.body.innerHTML = `
+                <div class="gradient-bg h-screen flex flex-col items-center justify-center text-white">
+                    <h1 class="text-4xl font-bold mb-4 bounce2">Yay! See you on the 14th! ❤️</h1>
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYyYm9waGFia2p3Y2d6YmR6ZWR6ZWR6ZWR6ZWR6ZWR6ZWR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3orieUe6ejxSFxYVol/giphy.gif" class="w-64">
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
