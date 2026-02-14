@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Invite</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7cbd4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        h1 { color: #333; }
+        .buttons {
+            margin-top: 30px;
+            position: relative;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+            margin-right: 10px;
+        }
+        #noBtn {
+            background-color: #eee;
+            color: #333;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2o1eXl4eXh4eXh4eXh4eXh4eXh4eXh4eXh4eXh4eXh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/57Y5v5W4q7G9y/giphy.gif" alt="Cute Cat" width="150">
+    <h1>Aristarhos, will you be my valentine?</h1>
+    <div class="buttons">
+        <button id="yesBtn" onclick="celebrate()">Yes</button>
+        <button id="noBtn" onmouseover="moveButton()">No</button>
+    </div>
+</div>
+
+<script>
+    function moveButton() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        const btn = document.getElementById('noBtn');
+        btn.style.left = x + 'px';
+        btn.style.top = y + 'px';
+    }
+
+    function celebrate() {
+        alert("Yay! Can't wait! ❤️");
+        document.body.innerHTML = `
+            <div class="container">
+                <h1>It's a date! ❤️</h1>
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2o1eXl4eXh4eXh4eXh4eXh4eXh4eXh4eXh4eXh4eXh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKoWXm3okO1kgHC/giphy.gif" width="300">
+            </div>
+        `;
+        document.body.style.backgroundColor = "#ff4d6d";
+    }
+</script>
+
+</body>
+</html>
